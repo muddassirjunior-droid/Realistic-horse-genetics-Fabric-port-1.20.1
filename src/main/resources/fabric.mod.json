@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "horse_colors",
+  "version": "${version}",
+  "name": "Realistic Horse Genetics",
+  "description": "This mod adds biologically correct genetics for horses, massively expanding the available coat colors and patterns, as well as plausible genetics for speed, health, and jump height. Mendelian and non-Mendelian inheritance are used where applicable, including chromosome linkage based on published research.\n\nFabric port of the original Forge/NeoForge mod by sekelsta (https://github.com/sekelsta/horse-colors).",
+  "authors": ["sekelsta"],
+  "contact": {
+    "sources": "https://github.com/sekelsta/horse-colors",
+    "issues": "https://github.com/sekelsta/horse-colors/issues"
+  },
+  "license": "LGPL-3.0-or-later",
+  "environment": "*",
+  "entrypoints": {
+    "main": ["horse_colors.HorseColors"]
+  },
+  "depends": {
+    "fabricloader": ">=0.15.0",
+    "fabric-api": "*",
+    "minecraft": "~1.20.1",
+    "java": ">=17"
+  }
+}
