@@ -9,6 +9,7 @@ import sekelsta.horse_colors.breed.BreedManager;
 import sekelsta.horse_colors.entity.ModEntities;
 import sekelsta.horse_colors.item.ModItems;
 import sekelsta.horse_colors.network.HorsePacketHandler;
+import sekelsta.horse_colors.world.Spawns;
 
 public class HorseColors implements ModInitializer {
     public static final String MOD_ID = "horse_colors";
@@ -26,5 +27,6 @@ public class HorseColors implements ModInitializer {
         ModItems.register();
         BreedManager.register();
         HorsePacketHandler.registerPackets();
+        Spawns.registerBiomeModifiers();
     }
 }
