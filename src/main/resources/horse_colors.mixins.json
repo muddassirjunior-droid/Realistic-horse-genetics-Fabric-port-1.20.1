@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "sekelsta.horse_colors.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "BrewingStandBlockEntityMixin",
+    "HorseScreenHandlerMixin"
+  ],
+  "client": [
+    "ClientPlayNetworkHandlerMixin"
+  ],
+  "server": [],
+  "injectors": { "defaultRequire": 1 }
+}

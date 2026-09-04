@@ -132,6 +132,17 @@ public abstract class AbstractHorseGenetic extends AbstractDonkeyEntity implemen
         return this.getRandom();
     }
 
+    // AbstractHorseEntity's implementation of this Tameable method is a synthetic
+    // bridge method (covariant override of AnimalEntity.getWorld(), confirmed by
+    // decompiling its bytecode), which javac won't accept as satisfying the
+    // interface for a freshly-compiled subclass - re-declaring it here makes every
+    // concrete subclass compile. super.method_48926() isn't callable directly since
+    // javac resolves it back to Tameable's abstract declaration, not the bridge.
+    @Override
+    public EntityView method_48926() {
+        return this.getWorld();
+    }
+
     @Override
     protected void initGoals() {
         this.goalSelector.add(0, new SwimGoal(this));
@@ -385,7 +396,7 @@ public abstract class AbstractHorseGenetic extends AbstractDonkeyEntity implemen
         }
     }
 
-    public ItemStack getArmor() {
+    public ItemStack getArmorItem() {
         return this.getEquippedStack(EquipmentSlot.CHEST);
     }
 
@@ -426,9 +437,9 @@ public abstract class AbstractHorseGenetic extends AbstractDonkeyEntity implemen
     */
     @Override
     public void onInventoryChanged(Inventory invBasic) {
-        ItemStack itemstack = this.getArmor();
+        ItemStack itemstack = this.getArmorItem();
         super.onInventoryChanged(invBasic);
-        ItemStack itemstack1 = this.getArmor();
+        ItemStack itemstack1 = this.getArmorItem();
         if (this.age > 20 && this.isArmor(itemstack1) && itemstack != itemstack1) {
             this.playSound(SoundEvents.ENTITY_HORSE_ARMOR, 0.5F, 1.0F);
         }
@@ -654,7 +665,7 @@ public abstract class AbstractHorseGenetic extends AbstractDonkeyEntity implemen
                     || HorseConfig.GENETICS.bookShowsTraits.get())
                 && (this.isTame() || player.getAbilities().creativeMode)
                 && this.canTestGenetics()) {
-            ItemStack book = new ItemStack(ModItems.geneBookItem.get());
+            ItemStack book = new ItemStack(ModItems.geneBookItem);
             if (book.getNbt() == null) {
                 book.setNbt(new NbtCompound());
             }
@@ -1199,7 +1210,6 @@ public abstract class AbstractHorseGenetic extends AbstractDonkeyEntity implemen
         }
 
         ItemStack stack = this.items.getStack(1);
-        if (isArmor(stack)) stack.onHorseArmorTick(this.getWorld(), this);
     }
 
     @Override

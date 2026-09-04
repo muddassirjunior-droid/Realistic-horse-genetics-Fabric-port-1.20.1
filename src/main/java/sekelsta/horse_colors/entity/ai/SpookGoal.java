@@ -22,7 +22,7 @@ public class SpookGoal<T extends LivingEntity> extends FleeEntityGoal<T> {
     @Override
     public void start() {
         AbstractHorseEntity horse = (AbstractHorseEntity)this.mob;
-        if (horse.isVehicle()) {
+        if (horse.hasPassengers()) {
             horse.removeAllPassengers();
             horse.updateAnger();
         }

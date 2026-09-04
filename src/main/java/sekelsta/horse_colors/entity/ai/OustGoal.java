@@ -43,8 +43,8 @@ public class OustGoal extends Goal {
 
     @Override
     public boolean shouldContinue() {
-        if (entity.isGroundTied() || entity.isLeashed() || entity.isVehicle()
-                || target.isLeashed() || target.isVehicle()) {
+        if (entity.isGroundTied() || entity.isLeashed() || entity.hasPassengers()
+                || target.isLeashed() || target.hasPassengers()) {
             return false;
         }
         return entity.squaredDistanceTo(target) < maxDist * maxDist && !entity.getNavigation().isIdle()

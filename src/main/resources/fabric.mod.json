@@ -12,8 +12,10 @@
   "license": "LGPL-3.0-or-later",
   "environment": "*",
   "entrypoints": {
-    "main": ["sekelsta.horse_colors.HorseColors"]
+    "main": ["sekelsta.horse_colors.HorseColors"],
+    "client": ["sekelsta.horse_colors.HorseColorsClient"]
   },
+  "mixins": ["horse_colors.mixins.json"],
   "depends": {
     "fabricloader": ">=0.15.0",
     "fabric-api": "*",

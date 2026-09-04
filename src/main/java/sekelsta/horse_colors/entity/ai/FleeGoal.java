@@ -49,7 +49,7 @@ public class FleeGoal extends Goal {
 
     @Override
     public boolean shouldContinue() {
-        if (entity.isGroundTied() || entity.isLeashed() || entity.isVehicle()) {
+        if (entity.isGroundTied() || entity.isLeashed() || entity.hasPassengers()) {
             return false;
         }
         return entity.squaredDistanceTo(toAvoid) < maxDist * maxDist;

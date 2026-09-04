@@ -37,7 +37,7 @@ public class HorseArmorLayer extends FeatureRenderer<AbstractHorseGenetic, Horse
 
     @Override
     public void render(MatrixStack matrixStack, VertexConsumerProvider renderTypeBuffer, int packedLight, AbstractHorseGenetic entityIn, float f1, float f2, float f3, float f4, float f5, float f6) {
-        ItemStack itemstack = entityIn.getArmor();
+        ItemStack itemstack = entityIn.getArmorItem();
         Item armor = itemstack.getItem();
         Identifier textureLocation = HorseArmorer.getTexture(armor);
         if (textureLocation != null) {
