@@ -10,6 +10,7 @@
     "issues": "https://github.com/sekelsta/horse-colors/issues"
   },
   "license": "LGPL-3.0-or-later",
+  "icon": "logo.png",
   "environment": "*",
   "entrypoints": {
     "main": ["sekelsta.horse_colors.HorseColors"],
