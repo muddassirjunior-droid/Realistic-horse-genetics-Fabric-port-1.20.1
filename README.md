@@ -6,6 +6,8 @@ All credit for the genetics design, coat color research, and original implementa
 
 Adds biologically realistic genetics for horses, donkeys, and mules: coat colors and patterns with real genetic linkage, genes affecting speed/jump/health, variable size, a gender and pregnancy system, and a genetic-testing book — same feature set as the original mod.
 
+> **Disclaimer:** This port was produced with AI (LLM) assistance — translating the original Forge/NeoForge source to Fabric's APIs line by line, verified against decompiled vanilla behavior and tested in a running client. It has not had the years of community testing the original mod has; please report issues.
+
 ## Requirements
 
 - Minecraft 1.20.1

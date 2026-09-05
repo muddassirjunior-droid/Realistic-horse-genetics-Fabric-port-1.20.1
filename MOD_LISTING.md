@@ -21,6 +21,8 @@ Mobs, Adventure, World Generation (CurseForge) · Adventure, Game Mechanics (Mod
 
 **This is an unofficial Fabric port of [Realistic Horse Genetics](https://www.curseforge.com/minecraft/mc-mods/realistic-horse-genetics) by [sekelsta](https://github.com/sekelsta), originally built for Forge/NeoForge.** All credit for the genetics design, coat color research, and original code goes to sekelsta. This port exists because the original mod has no Fabric release; the goal was a faithful 1:1 translation, not a redesign.
 
+**Disclaimer:** this port was produced with AI (LLM) assistance, translating the original source to Fabric's APIs line by line and testing the result in a running client. It hasn't had the years of community testing the original mod has — please report anything that looks off.
+
 This mod adds biologically correct genetics for horses, massively expanding the available coat colors and patterns, along with plausible genetics for speed, health, and jump height. Mendelian and non-Mendelian inheritance are used where applicable, including chromosome linkage based on published equine genetics research.
 
 **Features:**
