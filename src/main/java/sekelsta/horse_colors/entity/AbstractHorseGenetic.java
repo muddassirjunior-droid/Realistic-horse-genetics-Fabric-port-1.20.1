@@ -1,7 +1,6 @@
 package sekelsta.horse_colors.entity;
 
 import com.google.common.collect.ImmutableList;
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -86,18 +85,13 @@ public abstract class AbstractHorseGenetic extends AbstractDonkeyEntity implemen
 
     protected List<AbstractHorseGenetic> unbornChildren = new ArrayList<>();
 
-    // Private field on AbstractHorseEntity that counts down the "eating" animation.
-    // No Forge-style obfuscation helper is needed on Fabric since Yarn already gives
-    // real names at both dev-time and runtime; plain reflection is enough.
-    private static final Field EATING_TICKS_FIELD;
-    static {
-        try {
-            EATING_TICKS_FIELD = AbstractHorseEntity.class.getDeclaredField("eatingTicks");
-            EATING_TICKS_FIELD.setAccessible(true);
-        } catch (NoSuchFieldException e) {
-            throw new RuntimeException(e);
-        }
-    }
+    // AbstractHorseEntity.eatingTicks (counts down the "eating" animation) is private.
+    // Reflection using the Yarn name only works in the dev environment, where Loom
+    // remaps the whole game jar to Yarn names - in a real player's game the field has
+    // a different runtime name and a literal "eatingTicks" string lookup throws
+    // NoSuchFieldException. An access widener is the correct fix: it grants access
+    // while still going through Loom/Fabric Loader's real name remapping, so plain
+    // field access below resolves correctly in both environments.
 
     public AbstractHorseGenetic(EntityType<? extends AbstractHorseGenetic> entityType, World worldIn)
     {
@@ -859,11 +853,7 @@ public abstract class AbstractHorseGenetic extends AbstractDonkeyEntity implemen
 
         if (fed) {
             this.setHorseFlag(64, true);
-            try {
-                EATING_TICKS_FIELD.setInt(this, 1);
-            } catch (IllegalAccessException e) {
-                throw new RuntimeException(e);
-            }
+            this.eatingTicks = 1;
             emitGameEvent(GameEvent.EAT);
         }
         return fed;

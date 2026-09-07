@@ -28,6 +28,10 @@ processResources {
     filesMatching("fabric.mod.json") { expand "version": project.version }
 }
 
+loom {
+    accessWidenerPath = file("src/main/resources/horse_colors.accesswidener")
+}
+
 tasks.withType(JavaCompile).configureEach { it.options.release = 17 }
 
 java {

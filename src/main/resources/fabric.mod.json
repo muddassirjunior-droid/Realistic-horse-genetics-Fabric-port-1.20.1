@@ -17,6 +17,7 @@
     "client": ["sekelsta.horse_colors.HorseColorsClient"]
   },
   "mixins": ["horse_colors.mixins.json"],
+  "accessWidener": "horse_colors.accesswidener",
   "depends": {
     "fabricloader": ">=0.15.0",
     "fabric-api": "*",
